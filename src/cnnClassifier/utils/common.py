@@ -23,7 +23,7 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
         raise e
     
 @ensure_annotations
-def create_direcories(path_to_directories: list, verbose=True):
+def create_directories(path_to_directories: list, verbose=True):
     for path in path_to_directories:
         os.makedirs(path, exist_ok=True)
         if verbose:
