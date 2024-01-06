@@ -6,6 +6,7 @@ from urllib.parse import urlparse
 from cnnClassifier.entity.config_entity import EvaluationConfig
 from cnnClassifier.constants import *
 from cnnClassifier.utils.common import save_json
+from cnnClassifier import logger
 
 class Evaluation:
     def __init__(self, config: EvaluationConfig):
@@ -56,7 +57,7 @@ class Evaluation:
     def log_into_mlflow(self):
         mlflow.set_registry_uri(self.config.mlflow_uri)
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
-        
+        logger.info("Start mlflow run")
         with mlflow.start_run():
             mlflow.log_params(self.config.all_params)
             mlflow.log_metrics(
@@ -68,3 +69,4 @@ class Evaluation:
                 mlflow.keras.log_model(self.model, "model", registered_model_name="VGG16Model")
             else:
                 mlflow.keras.log_model(self.model, "model")
+            logger.info("mlflow run completed")
