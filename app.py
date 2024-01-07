@@ -24,17 +24,11 @@ def main():
         # Column 2: Display the prediction result
         if col2.button("Predict"):
             with st.spinner('Predicting...'):
-                try:
-                    # Save the uploaded image temporarily
-                    
+                prediction_result = pipeline.predict()
 
-                    # Make prediction using the pipeline
-                    prediction_result = pipeline.predict()
-
-                    # Display the prediction result
-                    col2.success(f"Prediction: {prediction_result[0]['image']}")
-                except Exception as e:
-                    col2.error(f"Error predicting: {str(e)}")
+                # Display the prediction result
+                col2.success(f"Prediction: {prediction_result[0]['image']}")
+                
 
 # Run the app
 if __name__ == '__main__':
