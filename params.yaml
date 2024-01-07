@@ -2,7 +2,11 @@ AUGMENTATION: True
 IMAGE_SIZE: [224,224,3]
 BATCH_SIZE: 32
 INCLUDE_TOP: False
+<<<<<<< HEAD
 EPOCHS: 1
+=======
+EPOCHS: 3
+>>>>>>> parent of b14f167 (dvc added)
 CLASSES: 2
 WEIGHTS: imagenet
-LEARNING_RATE: 0.01
+LEARNING_RATE: 0.03
