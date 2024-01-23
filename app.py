@@ -20,7 +20,6 @@ def main():
         
         # Prediction Pipeline
         pipeline = PredictionPipeline(filename=uploaded_image)
-
         # Column 2: Display the prediction result
         if col2.button("Predict"):
             with st.spinner('Predicting...'):
